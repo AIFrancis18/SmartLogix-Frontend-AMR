@@ -27,7 +27,7 @@ function AdminPage() {
 
   const token = localStorage.getItem("token");
 
-  // 🔥 VALIDAR ADMIN
+  
   useEffect(() => {
 
     if (!token) {
@@ -61,7 +61,7 @@ function AdminPage() {
 
   }, []);
 
-  // 🔥 CARGAR USUARIOS
+  
   const cargarUsuarios = async () => {
 
     const res = await fetch(
@@ -77,7 +77,7 @@ function AdminPage() {
 
   };
 
-  // 🔥 CARGAR PEDIDOS
+  
   const cargarPedidos = async () => {
 
     const res = await fetch(
@@ -91,7 +91,7 @@ function AdminPage() {
 
     const data = await res.json();
 
-    // 🔥 MÁS NUEVOS PRIMERO
+    
     const pedidosOrdenados = data.sort(
       (a, b) => b.id - a.id
     );
@@ -100,7 +100,7 @@ function AdminPage() {
 
   };
 
-  // 🔥 CARGAR ENVÍOS
+  
   const cargarEnvios = async () => {
 
     const res = await fetch(
@@ -114,7 +114,7 @@ function AdminPage() {
 
     const data = await res.json();
 
-    // 🔥 MÁS NUEVOS PRIMERO
+   
     const enviosOrdenados = data.sort(
       (a, b) => b.id - a.id
     );
@@ -123,7 +123,7 @@ function AdminPage() {
 
   };
 
-  // 🔥 LIMPIAR FORMULARIO
+  
   const limpiarFormulario = () => {
 
     setForm({
@@ -140,7 +140,7 @@ function AdminPage() {
 
   };
 
-  // 🔥 VALIDACIONES
+
   const validarFormulario = () => {
 
     const nombreLimpio = form.nombre.trim();
@@ -149,11 +149,11 @@ function AdminPage() {
       .trim()
       .toLowerCase();
 
-    // 🔥 SOLO LETRAS
+   
     const regexNombre =
       /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/;
 
-    // 🔥 LETRAS + NÚMEROS + .COM/.CL
+   
     const regexCorreo =
       /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.(com|cl)$/;
 
@@ -181,7 +181,7 @@ function AdminPage() {
       );
     }
 
-    // 🔥 SOLO VALIDAR CONTRASEÑA SI EXISTE
+    
     if (
       form.contrasena &&
       (
@@ -201,7 +201,7 @@ function AdminPage() {
 
   };
 
-  // 🔥 GUARDAR USUARIO
+  
   const guardarUsuario = async () => {
 
     try {
@@ -261,7 +261,7 @@ function AdminPage() {
 
   };
 
-  // 🔥 EDITAR
+  
   const editar = (user) => {
 
     setForm({
@@ -275,7 +275,7 @@ function AdminPage() {
 
   };
 
-  // 🔥 ELIMINAR
+  
   const eliminar = async (id) => {
 
     const confirmar = window.confirm(
@@ -311,7 +311,7 @@ function AdminPage() {
 
   };
 
-  // 🔥 LOGOUT
+ 
   const logout = () => {
 
     localStorage.removeItem("token");
@@ -320,7 +320,7 @@ function AdminPage() {
 
   };
 
-  // 🔥 RENDER
+  
   const renderVista = () => {
 
     // 🔹 USUARIOS
