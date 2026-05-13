@@ -1,4 +1,4 @@
-/* 🔥 GENERAL */
+
 .dashboard-container {
   min-height: 100vh;
   padding: 30px;
@@ -11,7 +11,7 @@
   color: white;
 }
 
-/* 🔥 NAVBAR */
+
 .dashboard-navbar {
   display: flex;
   justify-content: space-between;
@@ -30,7 +30,7 @@
   color: #cbd5e1;
 }
 
-/* 🔥 BOTÓN */
+
 .back-btn {
   display: flex;
   align-items: center;
@@ -58,7 +58,7 @@
   transform: translateY(-2px);
 }
 
-/* 🔥 GRID */
+
 .stats-grid {
   display: grid;
 
@@ -70,7 +70,7 @@
   margin-bottom: 35px;
 }
 
-/* 🔥 CARD */
+
 .stat-card {
   background: rgba(255,255,255,0.08);
 
@@ -106,7 +106,7 @@
   color: #cbd5e1;
 }
 
-/* 🔥 ICONOS */
+
 .icon {
   width: 65px;
   height: 65px;
@@ -145,7 +145,7 @@
   color: #c084fc;
 }
 
-/* 🔥 TABLA */
+
 .dashboard-table {
   background: rgba(255,255,255,0.08);
 
@@ -163,7 +163,7 @@
   margin-bottom: 20px;
 }
 
-/* 🔥 TABLE */
+
 .dashboard-table table {
   width: 100%;
   border-collapse: collapse;
@@ -189,7 +189,7 @@
   color: #e2e8f0;
 }
 
-/* 🔥 RESPONSIVE */
+
 @media (max-width: 768px) {
 
   .dashboard-navbar {
