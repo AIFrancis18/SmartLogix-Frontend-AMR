@@ -1,4 +1,4 @@
-/* 🔥 NAVBAR */
+
 .navbar {
 
   position: sticky;
@@ -24,7 +24,7 @@
 
 }
 
-/* 🔥 TITULO */
+
 .nav-title {
 
   font-size: 22px;
@@ -36,7 +36,7 @@
 
 }
 
-/* 🔥 BOTONES NAV */
+
 .nav-left {
 
   display: flex;
@@ -91,7 +91,7 @@
 
 }
 
-/* 🔥 LOGOUT */
+
 .logout {
 
   border: none;
@@ -126,7 +126,7 @@
 
 }
 
-/* 🔥 CONTENEDOR */
+
 .container {
 
   max-width: 1350px;
@@ -137,7 +137,7 @@
 
 }
 
-/* 🔥 CARD PRINCIPAL */
+
 .section {
 
   background:
@@ -165,7 +165,7 @@
 
 }
 
-/* 🔥 TITULOS */
+
 h3 {
 
   margin-top: 0;
@@ -177,7 +177,7 @@ h3 {
 
 }
 
-/* 🔥 FORMULARIOS */
+
 .form {
 
   display: flex;
@@ -190,7 +190,7 @@ h3 {
 
 }
 
-/* 🔥 INPUTS */
+
 .input {
 
   min-width: 220px;
@@ -222,7 +222,7 @@ h3 {
 
 }
 
-/* 🔥 BOTONES */
+
 .btn {
 
   border: none;
@@ -239,7 +239,7 @@ h3 {
 
 }
 
-/* 🔥 BOTON AZUL */
+
 .btn-primary {
 
   background:
@@ -265,7 +265,7 @@ h3 {
 
 }
 
-/* 🔥 BOTON ROJO */
+
 .btn-delete {
 
   background:
@@ -288,7 +288,7 @@ h3 {
 
 }
 
-/* 🔥 TABLAS */
+
 .table {
 
   width: 100%;
@@ -301,7 +301,7 @@ h3 {
 
 }
 
-/* 🔥 HEADER */
+
 .table th {
 
   background:
@@ -325,7 +325,7 @@ h3 {
 
 }
 
-/* 🔥 BORDES HEADER */
+
 .table th:first-child {
   border-radius: 12px 0 0 12px;
 }
@@ -334,7 +334,7 @@ h3 {
   border-radius: 0 12px 12px 0;
 }
 
-/* 🔥 FILAS */
+
 .table td {
 
   background: white;
@@ -346,7 +346,7 @@ h3 {
 
 }
 
-/* 🔥 EFECTO HOVER */
+
 .table tr {
 
   transition: 0.2s;
@@ -359,7 +359,7 @@ h3 {
 
 }
 
-/* 🔥 BORDES FILAS */
+
 .table td:first-child {
   border-radius: 12px 0 0 12px;
 }
@@ -368,7 +368,7 @@ h3 {
   border-radius: 0 12px 12px 0;
 }
 
-/* 🔥 SELECT */
+
 select {
 
   padding: 10px 12px;
@@ -383,7 +383,7 @@ select {
 
 }
 
-/* 🔥 MENSAJES */
+
 .message {
 
   margin-top: 20px;
@@ -394,7 +394,7 @@ select {
 
 }
 
-/* 🔥 RESPONSIVE */
+
 @media (max-width: 768px) {
 
   .navbar {
