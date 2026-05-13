@@ -1,4 +1,4 @@
-/* 🔥 NAVBAR */
+
 .navbar {
 
   position: sticky;
@@ -21,7 +21,6 @@
 
 }
 
-/* 🔥 TITULO */
 .nav-title {
 
   font-size: 26px;
@@ -33,7 +32,6 @@
 
 }
 
-/* 🔥 BOTONES NAV */
 .nav-left {
 
   display: flex;
@@ -82,7 +80,6 @@
 
 }
 
-/* 🔥 LOGOUT */
 .logout {
 
   border: none;
@@ -112,7 +109,6 @@
 
 }
 
-/* 🔥 CONTENEDOR */
 .container {
 
   max-width: 1350px;
@@ -124,7 +120,6 @@
 
 }
 
-/* 🔥 CARD PRINCIPAL */
 .section {
 
   background: var(--panel-bg);
@@ -172,7 +167,6 @@ h3 {
 
 }
 
-/* 🔥 INPUTS */
 .input {
 
   min-width: 220px;
@@ -320,7 +314,7 @@ h3 {
   border-radius: 0 12px 12px 0;
 }
 
-/* 🔥 FILAS */
+
 .table td {
 
   background: var(--panel-bg-2);
@@ -333,7 +327,7 @@ h3 {
 
 }
 
-/* 🔥 EFECTO HOVER */
+
 .table tr {
 
   transition: 0.2s;
@@ -400,7 +394,7 @@ select {
 
 }
 
-/* 🔥 RESPONSIVE */
+
 @media (max-width: 768px) {
 
   .navbar {
