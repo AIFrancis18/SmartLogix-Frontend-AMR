@@ -58,7 +58,7 @@ function OperadorPage() {
 
     try {
 
-      const res = await fetch("http://localhost:9090/pedidos", {
+      const res = await fetch("/pedidos", {
         headers: {
           Authorization: "Bearer " + token
         }
@@ -70,7 +70,7 @@ function OperadorPage() {
 
     } catch {
 
-      setMensaje("❌ Error al cargar pedidos");
+      setMensaje("Error al cargar pedidos");
 
     }
   };
@@ -91,7 +91,7 @@ function OperadorPage() {
         throw new Error("Completa todos los campos");
       }
 
-      const res = await fetch("http://localhost:9090/pedidos", {
+      const res = await fetch("/pedidos", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -108,7 +108,7 @@ function OperadorPage() {
         throw new Error("Error al crear pedido");
       }
 
-      setMensaje("✅ Pedido creado correctamente");
+      setMensaje("Pedido creado correctamente");
 
       setForm({
         cliente: "",
@@ -123,7 +123,7 @@ function OperadorPage() {
 
     } catch (error) {
 
-      setMensaje("❌ " + error.message);
+      setMensaje(error.message);
 
     }
   };
@@ -145,7 +145,7 @@ function OperadorPage() {
       return (
         <>
 
-          <h3>📦 Crear Pedido</h3>
+          <h3>Crear Pedido</h3>
 
           <div className="form">
 

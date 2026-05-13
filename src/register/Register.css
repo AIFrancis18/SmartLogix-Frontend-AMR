@@ -3,184 +3,118 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
   min-height: 100vh;
-
   padding: 20px;
-
-  background:
-    linear-gradient(
-      rgba(15, 23, 42, 0.78),
-      rgba(15, 23, 42, 0.78)
-    ),
-    linear-gradient(135deg, #2563eb, #06b6d4);
+  background: var(--page-bg);
 }
 
 /* 🔥 CARD REGISTER */
 .card {
-
   width: 380px;
-
-  background: rgba(255, 255, 255, 0.96);
-
-  backdrop-filter: blur(12px);
-
+  background: var(--panel-bg);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,0.10);
   border-radius: 24px;
-
   padding: 40px;
-
   text-align: center;
-
-  box-shadow:
-    0 20px 45px rgba(0,0,0,0.25);
-
+  box-shadow: 0 20px 45px rgba(0,0,0,0.25);
   animation: fadeIn 0.5s ease;
 }
 
 /* 🔥 TITULO */
 .card h2 {
-
   margin: 0 0 10px;
-
   font-size: 32px;
-
-  color: #0f172a;
+  color: var(--text);
 }
 
 /* 🔥 SUBTEXTO */
 .card p {
-
-  color: #64748b;
-
+  color: var(--muted);
   margin-bottom: 24px;
-
-  font-size: 14px;
+  font-size: 16px;
 }
 
 /* 🔥 INPUTS */
 .input {
-
   width: 100%;
-
   padding: 14px;
-
   margin-top: 14px;
-
   border-radius: 14px;
-
-  border: 1px solid #dbeafe;
-
-  background: #f8fafc;
-
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.06);
+  color: var(--text);
   outline: none;
-
   box-sizing: border-box;
-
-  font-size: 14px;
-
+  font-size: 16px;
   transition: 0.25s;
+}
+
+.input::placeholder {
+  color: rgba(255,255,255,0.70);
 }
 
 /* 🔥 EFECTO INPUT */
 .input:focus {
-
-  border-color: #22c55e;
-
-  background: white;
-
-  box-shadow:
-    0 0 0 4px rgba(34,197,94,0.15);
+  border-color: rgba(255,255,255,0.35);
+  background: rgba(255,255,255,0.08);
+  box-shadow: 0 0 0 4px rgba(255,255,255,0.08);
 }
 
 /* 🔥 BOTÓN */
 .button {
-
   width: 100%;
-
   padding: 14px;
-
   margin-top: 22px;
-
   border-radius: 14px;
-
   border: none;
-
-  background:
-    linear-gradient(
-      135deg,
-      #22c55e,
-      #16a34a
-    );
-
+  background: var(--btn-bg);
   color: white;
-
-  font-size: 15px;
-
+  font-size: 16px;
   font-weight: bold;
-
   cursor: pointer;
-
   transition: 0.25s;
-
-  box-shadow:
-    0 10px 22px rgba(34,197,94,0.25);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.25);
 }
 
 /* 🔥 HOVER BOTÓN */
 .button:hover:not(:disabled) {
-
   transform: translateY(-2px);
-
-  box-shadow:
-    0 14px 28px rgba(34,197,94,0.35);
+  background: var(--btn-hover);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.35);
 }
 
 /* 🔥 BOTÓN DESHABILITADO */
 .button:disabled {
-
   background: #94a3b8;
-
   cursor: not-allowed;
-
   box-shadow: none;
 }
 
 /* 🔥 MENSAJES */
 .message {
-
   margin-top: 18px;
-
   font-weight: bold;
-
-  font-size: 14px;
-
-  color: #dc2626;
+  font-size: 16px;
+  color: rgba(255,255,255,0.90);
 }
 
 /* 🔥 LINK */
 .link {
-
   margin-top: 18px;
-
-  color: #2563eb;
-
+  color: rgba(255,255,255,0.85);
   font-weight: 600;
-
   cursor: pointer;
-
   transition: 0.2s;
 }
 
 .link:hover {
-
-  color: #1d4ed8;
-
+  color: rgba(255,255,255,0.95);
   text-decoration: underline;
 }
 
 /* 🔥 ANIMACIÓN */
 @keyframes fadeIn {
-
   from {
     opacity: 0;
     transform: translateY(20px);
@@ -190,17 +124,12 @@
     opacity: 1;
     transform: translateY(0);
   }
-
 }
 
 /* 🔥 RESPONSIVE */
 @media (max-width: 500px) {
-
   .card {
-
     width: 100%;
-
     padding: 30px 22px;
   }
-
 }

@@ -65,7 +65,7 @@ function AdminPage() {
   const cargarUsuarios = async () => {
 
     const res = await fetch(
-      "http://localhost:9090/usuarios",
+      "/usuarios",
       {
         headers: {
           Authorization: "Bearer " + token
@@ -81,7 +81,7 @@ function AdminPage() {
   const cargarPedidos = async () => {
 
     const res = await fetch(
-      "http://localhost:9090/pedidos",
+      "/pedidos",
       {
         headers: {
           Authorization: "Bearer " + token
@@ -104,7 +104,7 @@ function AdminPage() {
   const cargarEnvios = async () => {
 
     const res = await fetch(
-      "http://localhost:9090/envios",
+      "/envios",
       {
         headers: {
           Authorization: "Bearer " + token
@@ -215,8 +215,8 @@ function AdminPage() {
         modoEdicion ? "PUT" : "POST";
 
       const url = modoEdicion
-        ? `http://localhost:9090/usuarios/${form.id}`
-        : "http://localhost:9090/usuarios";
+        ? `/usuarios/${form.id}`
+        : "/usuarios";
 
       const bodyData = {
         ...form,
@@ -244,7 +244,7 @@ function AdminPage() {
       }
 
       setMensaje(
-        "✅ Usuario guardado correctamente"
+        "Usuario guardado correctamente"
       );
 
       limpiarFormulario();
@@ -255,7 +255,7 @@ function AdminPage() {
 
     } catch (error) {
 
-      setMensaje("❌ " + error.message);
+      setMensaje(error.message);
 
     }
 
@@ -287,7 +287,7 @@ function AdminPage() {
     try {
 
       await fetch(
-        `http://localhost:9090/usuarios/${id}`,
+        `/usuarios/${id}`,
         {
           method: "DELETE",
 
@@ -297,14 +297,14 @@ function AdminPage() {
         }
       );
 
-      setMensaje("✅ Usuario eliminado");
+      setMensaje("Usuario eliminado");
 
       cargarUsuarios();
 
     } catch {
 
       setMensaje(
-        "❌ Error al eliminar usuario"
+        "Error al eliminar usuario"
       );
 
     }
@@ -380,7 +380,7 @@ function AdminPage() {
                   <td className="actions">
 
                     <button
-                      className="btn btn-primary"
+                      className="btn btn-edit"
                       onClick={() => editar(u)}
                     >
                       Editar

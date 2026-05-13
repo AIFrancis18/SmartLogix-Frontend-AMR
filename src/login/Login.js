@@ -81,7 +81,7 @@ function Login() {
 
       // 🔥 PETICIÓN LOGIN
       const response = await fetch(
-        "http://localhost:9090/usuarios/login",
+        "/usuarios/login",
         {
           method: "POST",
 
@@ -110,7 +110,7 @@ function Login() {
 
       const data = jwtDecode(token);
 
-      setMensaje(`✅ Bienvenido ${data.sub}`);
+      setMensaje(`Bienvenido ${data.sub}`);
 
       // 🔥 REDIRECCIÓN
       setTimeout(() => {
@@ -143,7 +143,7 @@ function Login() {
 
     } catch (error) {
 
-      setMensaje("❌ " + error.message);
+      setMensaje(error.message);
 
     } finally {
 

@@ -1,44 +1,49 @@
-
+/* 🔥 GENERAL */
 .dashboard-container {
   min-height: 100vh;
   padding: 30px;
-  background:
-    linear-gradient(rgba(15,23,42,0.92),
-    rgba(15,23,42,0.92)),
-    linear-gradient(135deg, #2563eb, #06b6d4);
+  background: var(--page-bg);
 
   font-family: "Segoe UI", sans-serif;
   color: white;
 }
 
-
+/* 🔥 NAVBAR */
 .dashboard-navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
 
-  margin-bottom: 35px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  margin: 0 -30px 35px;
+  padding: 16px 28px;
+  background: var(--nav-bg);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.20);
 }
 
 .dashboard-navbar h2 {
   margin: 0;
-  font-size: 30px;
+  font-size: 34px;
 }
 
 .dashboard-navbar p {
   margin-top: 6px;
-  color: #cbd5e1;
+  color: var(--muted);
+  font-size: 16px;
 }
 
-
+/* 🔥 BOTÓN */
 .back-btn {
   display: flex;
   align-items: center;
   gap: 8px;
 
-  background: rgba(255,255,255,0.1);
+  background: var(--btn-bg);
 
-  border: 1px solid rgba(255,255,255,0.2);
+  border: 1px solid rgba(255,255,255,0.10);
 
   color: white;
 
@@ -51,14 +56,15 @@
   transition: 0.25s;
 
   font-weight: bold;
+  font-size: 16px;
 }
 
 .back-btn:hover {
-  background: rgba(255,255,255,0.2);
+  background: var(--btn-hover);
   transform: translateY(-2px);
 }
 
-
+/* 🔥 GRID */
 .stats-grid {
   display: grid;
 
@@ -70,7 +76,7 @@
   margin-bottom: 35px;
 }
 
-
+/* 🔥 CARD */
 .stat-card {
   background: rgba(255,255,255,0.08);
 
@@ -98,15 +104,16 @@
 
 .stat-card h3 {
   margin: 0;
-  font-size: 28px;
+  font-size: 32px;
 }
 
 .stat-card p {
   margin-top: 5px;
-  color: #cbd5e1;
+  color: var(--muted);
+  font-size: 16px;
 }
 
-
+/* 🔥 ICONOS */
 .icon {
   width: 65px;
   height: 65px;
@@ -145,7 +152,7 @@
   color: #c084fc;
 }
 
-
+/* 🔥 TABLA */
 .dashboard-table {
   background: rgba(255,255,255,0.08);
 
@@ -163,7 +170,7 @@
   margin-bottom: 20px;
 }
 
-
+/* 🔥 TABLE */
 .dashboard-table table {
   width: 100%;
   border-collapse: collapse;
@@ -174,10 +181,11 @@
 
   padding: 14px;
 
-  color: #93c5fd;
+  color: rgba(255,255,255,0.80);
 
   border-bottom:
     1px solid rgba(255,255,255,0.1);
+  font-size: 16px;
 }
 
 .dashboard-table td {
@@ -186,10 +194,11 @@
   border-bottom:
     1px solid rgba(255,255,255,0.08);
 
-  color: #e2e8f0;
+  color: rgba(255,255,255,0.92);
+  font-size: 16px;
 }
 
-
+/* 🔥 RESPONSIVE */
 @media (max-width: 768px) {
 
   .dashboard-navbar {
@@ -200,6 +209,10 @@
 
   .dashboard-container {
     padding: 20px;
+  }
+
+  .dashboard-navbar {
+    margin: 0 -20px 35px;
   }
 
 }

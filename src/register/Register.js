@@ -70,7 +70,7 @@ function Register() {
 
       // 🔥 PETICIÓN
       const response = await fetch(
-        "http://localhost:9090/usuarios",
+        "/usuarios",
         {
           method: "POST",
 
@@ -94,7 +94,7 @@ function Register() {
       }
 
       setMensaje(
-        "✅ Usuario creado correctamente"
+        "Usuario creado correctamente"
       );
 
       // 🔥 LIMPIAR FORM
@@ -112,7 +112,7 @@ function Register() {
 
     } catch (error) {
 
-      setMensaje("❌ " + error.message);
+      setMensaje(error.message);
 
     } finally {
 
@@ -127,7 +127,7 @@ function Register() {
 
       <div className="card">
 
-        <h2>🚀 Crear Cuenta</h2>
+        <h2>Crear Cuenta</h2>
 
         <p>
           Registra un nuevo usuario en SmartLogix
@@ -179,11 +179,11 @@ function Register() {
           </option>
 
           <option value="OPERADOR">
-            📦 OPERADOR
+            OPERADOR
           </option>
 
           <option value="LOGISTICA">
-            🚚 LOGÍSTICA
+            LOGÍSTICA
           </option>
 
         </select>

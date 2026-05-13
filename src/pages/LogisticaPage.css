@@ -2,8 +2,10 @@
 body {
   margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #f1f5f9;
+  background: var(--page-bg);
   overflow-x: hidden;
+  color: var(--text);
+  font-size: 18px;
 }
 
 /* 🔥 NAVBAR */
@@ -18,7 +20,7 @@ body {
 
   padding: 16px 28px;
 
-  background: linear-gradient(135deg, #0f172a, #1e293b);
+  background: var(--nav-bg);
 
   color: white;
 
@@ -27,7 +29,7 @@ body {
 
 /* 🔥 TITULO */
 .nav-title {
-  font-size: 20px;
+  font-size: 26px;
   font-weight: bold;
   letter-spacing: 0.5px;
 }
@@ -39,7 +41,7 @@ body {
 }
 
 .nav-btn {
-  background: transparent;
+  background: var(--btn-bg);
   border: none;
   color: white;
 
@@ -51,23 +53,23 @@ body {
 
   transition: 0.25s;
 
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 16px;
+  font-weight: 600;
 }
 
 .nav-btn:hover {
-  background: rgba(255,255,255,0.12);
+  background: var(--btn-hover);
   transform: translateY(-1px);
 }
 
 .nav-active {
-  background: linear-gradient(135deg, #22c55e, #16a34a);
-  box-shadow: 0 4px 10px rgba(34,197,94,0.3);
+  background: var(--btn-edit-bg);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
 }
 
 /* 🔥 LOGOUT */
 .logout {
-  background: linear-gradient(135deg, #ef4444, #dc2626);
+  background: var(--btn-bg);
 
   color: white;
 
@@ -86,7 +88,7 @@ body {
 
 .logout:hover {
   transform: translateY(-1px);
-  box-shadow: 0 5px 12px rgba(239,68,68,0.35);
+  box-shadow: 0 5px 12px rgba(0,0,0,0.35);
 }
 
 /* 🔥 CONTENEDOR */
@@ -98,15 +100,14 @@ body {
 
 /* 🔥 CARD */
 .section {
-  background: rgba(255,255,255,0.96);
-
-  backdrop-filter: blur(10px);
+  background: var(--panel-bg);
+  backdrop-filter: blur(14px);
 
   border-radius: 20px;
 
   padding: 25px;
 
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.18);
 
   overflow-x: auto;
 }
@@ -116,9 +117,9 @@ h3 {
   margin-top: 0;
   margin-bottom: 20px;
 
-  color: #0f172a;
+  color: var(--text);
 
-  font-size: 24px;
+  font-size: 30px;
 }
 
 /* 🔥 FORM */
@@ -136,26 +137,50 @@ select {
 
   border-radius: 12px;
 
-  border: 1px solid #cbd5e1;
+  border: 1px solid rgba(255,255,255,0.18);
 
-  background: #f8fafc;
+  background: rgba(255,255,255,0.06);
+  color: var(--text);
 
   outline: none;
 
-  font-size: 14px;
+  font-size: 17px;
 
   transition: 0.2s;
 
   min-width: 220px;
 }
 
+.status-select {
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.06);
+  color: var(--text);
+  outline: none;
+  cursor: pointer;
+  font-size: 17px;
+  min-width: 190px;
+  transition: 0.2s;
+}
+
+.status-select:focus {
+  border-color: rgba(255,255,255,0.35);
+  background: rgba(255,255,255,0.08);
+  box-shadow: 0 0 0 4px rgba(255,255,255,0.08);
+}
+
+.status-select option {
+  background: #e2e8f0;
+  color: #0b1a33;
+  font-size: 16px;
+}
+
 .input:focus,
 select:focus {
-  border-color: #22c55e;
-
-  background: white;
-
-  box-shadow: 0 0 0 4px rgba(34,197,94,0.15);
+  border-color: rgba(255,255,255,0.35);
+  background: rgba(255,255,255,0.08);
+  box-shadow: 0 0 0 4px rgba(255,255,255,0.08);
 }
 
 /* 🔥 BOTONES */
@@ -174,23 +199,25 @@ select:focus {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, #22c55e, #16a34a);
+  background: var(--btn-bg);
   color: white;
 }
 
 .btn-primary:hover {
   transform: translateY(-1px);
-  box-shadow: 0 6px 16px rgba(34,197,94,0.35);
+  background: var(--btn-hover);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.35);
 }
 
 .btn-delete {
-  background: linear-gradient(135deg, #ef4444, #dc2626);
+  background: var(--btn-bg);
   color: white;
 }
 
 .btn-delete:hover {
   transform: translateY(-1px);
-  box-shadow: 0 6px 16px rgba(239,68,68,0.35);
+  background: var(--btn-hover);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.35);
 }
 
 /* 🔥 TABLA */
@@ -204,7 +231,7 @@ select:focus {
 
 /* 🔥 HEADERS */
 .table th {
-  background: linear-gradient(135deg, #22c55e, #16a34a);
+  background: var(--nav-bg);
 
   color: white;
 
@@ -212,21 +239,27 @@ select:focus {
 
   text-align: left;
 
-  font-size: 14px;
+  font-size: 16px;
 }
 
 /* 🔥 CELDAS */
 .table td {
   padding: 14px;
 
-  border-bottom: 1px solid #e2e8f0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
 
-  font-size: 14px;
+  font-size: 17px;
+  color: var(--text);
+  background: var(--panel-bg-2);
 }
 
 /* 🔥 HOVER */
 .table tr:hover {
-  background: #f8fafc;
+  background: rgba(255,255,255,0.04);
+}
+
+.table tr:hover td {
+  background: rgba(255,255,255,0.06);
 }
 
 /* 🔥 MENSAJES */
@@ -235,7 +268,8 @@ select:focus {
 
   font-weight: bold;
 
-  color: #0f172a;
+  color: var(--text);
+  font-size: 16px;
 }
 
 /* 🔥 SCROLL */
@@ -245,7 +279,7 @@ select:focus {
 }
 
 .section::-webkit-scrollbar-thumb {
-  background: #94a3b8;
+  background: rgba(255,255,255,0.25);
   border-radius: 20px;
 }
 

@@ -46,7 +46,7 @@ function LogisticaPage() {
 
     try {
 
-      const res = await fetch("http://localhost:9090/pedidos", {
+      const res = await fetch("/pedidos", {
         headers: {
           Authorization: "Bearer " + token
         }
@@ -58,7 +58,7 @@ function LogisticaPage() {
 
     } catch {
 
-      setMensaje("❌ Error al cargar pedidos");
+      setMensaje("Error al cargar pedidos");
 
     }
   };
@@ -68,7 +68,7 @@ function LogisticaPage() {
 
     try {
 
-      const res = await fetch("http://localhost:9090/envios", {
+      const res = await fetch("/envios", {
         headers: {
           Authorization: "Bearer " + token
         }
@@ -80,7 +80,7 @@ function LogisticaPage() {
 
     } catch {
 
-      setMensaje("❌ Error al cargar envíos");
+      setMensaje("Error al cargar envíos");
 
     }
   };
@@ -93,7 +93,7 @@ function LogisticaPage() {
     try {
 
       await fetch(
-        `http://localhost:9090/pedidos/${id}/estado?estado=${estado}`,
+        `/pedidos/${id}/estado?estado=${estado}`,
         {
           method: "PUT",
           headers: {
@@ -102,13 +102,13 @@ function LogisticaPage() {
         }
       );
 
-      setMensaje("✅ Estado de pedido actualizado");
+      setMensaje("Estado de pedido actualizado");
 
       cargarPedidos();
 
     } catch {
 
-      setMensaje("❌ Error al actualizar pedido");
+      setMensaje("Error al actualizar pedido");
 
     }
   };
@@ -121,7 +121,7 @@ function LogisticaPage() {
     try {
 
       await fetch(
-        `http://localhost:9090/envios/${id}/estado?estado=${estado}`,
+        `/envios/${id}/estado?estado=${estado}`,
         {
           method: "PUT",
           headers: {
@@ -130,13 +130,13 @@ function LogisticaPage() {
         }
       );
 
-      setMensaje("✅ Estado de envío actualizado");
+      setMensaje("Estado de envío actualizado");
 
       cargarEnvios();
 
     } catch {
 
-      setMensaje("❌ Error al actualizar envío");
+      setMensaje("Error al actualizar envío");
 
     }
   };
@@ -153,7 +153,7 @@ function LogisticaPage() {
     try {
 
       const res = await fetch(
-        `http://localhost:9090/pedidos/${id}`,
+        `/pedidos/${id}`,
         {
           method: "DELETE",
           headers: {
@@ -166,14 +166,14 @@ function LogisticaPage() {
         throw new Error();
       }
 
-      setMensaje("✅ Pedido y envío eliminados");
+      setMensaje("Pedido y envío eliminados");
 
       cargarPedidos();
       cargarEnvios();
 
     } catch {
 
-      setMensaje("❌ Error al eliminar pedido");
+      setMensaje("Error al eliminar pedido");
 
     }
   };
@@ -219,7 +219,7 @@ function LogisticaPage() {
         <>
 
           <div className="section-header">
-            <h3>📦 Gestión de Pedidos</h3>
+            <h3>Gestión de Pedidos</h3>
           </div>
 
           <table className="table">
@@ -253,7 +253,7 @@ function LogisticaPage() {
                           padding: "6px 12px",
                           borderRadius: "12px",
                           fontWeight: "bold",
-                          fontSize: "13px",
+                          fontSize: "14px",
                           ...obtenerColorEstado(p.estado)
                         }}
                       >
@@ -332,7 +332,7 @@ function LogisticaPage() {
         <>
 
           <div className="section-header">
-            <h3>🚚 Gestión de Envíos</h3>
+            <h3>Gestión de Envíos</h3>
           </div>
 
           <table className="table">
@@ -370,7 +370,7 @@ function LogisticaPage() {
                           padding: "6px 12px",
                           borderRadius: "12px",
                           fontWeight: "bold",
-                          fontSize: "13px",
+                          fontSize: "14px",
                           ...obtenerColorEstado(e.estado)
                         }}
                       >
@@ -437,7 +437,7 @@ function LogisticaPage() {
       <div className="navbar">
 
         <div className="nav-title">
-          🚚 SmartLogix Logística
+          SmartLogix Logística
         </div>
 
         <div className="nav-left">
