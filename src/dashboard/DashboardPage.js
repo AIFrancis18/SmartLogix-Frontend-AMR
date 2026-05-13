@@ -23,7 +23,7 @@ function Dashboard() {
 
   const token = localStorage.getItem("token");
 
-  // 🔥 VALIDAR ADMIN
+  
   useEffect(() => {
 
     if (!token) {
@@ -51,12 +51,12 @@ function Dashboard() {
 
   }, []);
 
-  // 🔥 CARGAR DATOS
+  
   const cargarDatos = async () => {
 
     try {
 
-      // 🔹 USUARIOS
+      
       const usuariosRes = await fetch(
         "http://localhost:9090/usuarios",
         {
@@ -66,7 +66,7 @@ function Dashboard() {
         }
       );
 
-      // 🔹 PEDIDOS
+     
       const pedidosRes = await fetch(
         "http://localhost:9090/pedidos",
         {
@@ -76,7 +76,7 @@ function Dashboard() {
         }
       );
 
-      // 🔹 ENVÍOS
+    
       const enviosRes = await fetch(
         "http://localhost:9090/envios",
         {
@@ -97,7 +97,7 @@ function Dashboard() {
     }
   };
 
-  // 🔥 ESTADÍSTICAS
+  
   const pedidosPendientes = pedidos.filter(
     p => p.estado === "PENDIENTE"
   ).length;
@@ -114,7 +114,7 @@ function Dashboard() {
 
     <div className="dashboard-container">
 
-      {/* 🔥 NAVBAR */}
+     
       <div className="dashboard-navbar">
 
         <div>
@@ -132,7 +132,7 @@ function Dashboard() {
 
       </div>
 
-      {/* 🔥 CARDS */}
+     
       <div className="stats-grid">
 
         {/* USUARIOS */}
@@ -207,7 +207,7 @@ function Dashboard() {
 
       </div>
 
-      {/* 🔥 TABLA RESUMEN */}
+      
       <div className="dashboard-table">
 
         <h3>📦 Últimos Pedidos</h3>
