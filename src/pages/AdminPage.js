@@ -12,6 +12,7 @@ function AdminPage() {
   const [usuarios, setUsuarios] = useState([]);
   const [pedidos, setPedidos] = useState([]);
   const [envios, setEnvios] = useState([]);
+  const [productos, setProductos] = useState([]);
 
   const [modoEdicion, setModoEdicion] = useState(false);
 
@@ -51,6 +52,7 @@ function AdminPage() {
       cargarUsuarios();
       cargarPedidos();
       cargarEnvios();
+      cargarProductos();
 
     } catch {
 
@@ -120,6 +122,28 @@ function AdminPage() {
     );
 
     setEnvios(enviosOrdenados);
+
+  };
+
+  // 🔥 CARGAR PRODUCTOS
+  const cargarProductos = async () => {
+
+    const res = await fetch(
+      "http://localhost:9090/productos",
+      {
+        headers: {
+          Authorization: "Bearer " + token
+        }
+      }
+    );
+
+    const data = await res.json();
+
+    const productosOrdenados = data.sort(
+      (a, b) => b.id - a.id
+    );
+
+    setProductos(productosOrdenados);
 
   };
 
@@ -619,6 +643,51 @@ function AdminPage() {
 
     }
 
+    // 🔹 INVENTARIO
+    if (vista === "inventario") {
+
+      return (
+
+        <>
+          <h3>
+            Inventario del Sistema
+          </h3>
+
+          <table className="table">
+
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Producto</th>
+                <th>Stock</th>
+              </tr>
+            </thead>
+
+            <tbody>
+
+              {productos.map((p) => (
+
+                <tr key={p.id}>
+
+                  <td>#{p.id}</td>
+
+                  <td>{p.nombre}</td>
+
+                  <td>{p.stock}</td>
+
+                </tr>
+
+              ))}
+
+            </tbody>
+
+          </table>
+        </>
+
+      );
+
+    }
+
   };
 
   return (
@@ -693,6 +762,19 @@ function AdminPage() {
             }
           >
             Envíos
+          </button>
+
+          <button
+            className={`nav-btn ${
+              vista === "inventario"
+                ? "nav-active"
+                : ""
+            }`}
+            onClick={() =>
+              setVista("inventario")
+            }
+          >
+            Inventario
           </button>
 
         </div>

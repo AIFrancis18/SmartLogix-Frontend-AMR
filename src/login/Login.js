@@ -35,6 +35,10 @@ function Login() {
           navigate("/logistica");
         }
 
+        else if (data.rol === "BODEGA") {
+          navigate("/bodega");
+        }
+
       } catch {
 
         localStorage.removeItem("token");
@@ -130,6 +134,12 @@ function Login() {
         else if (data.rol === "LOGISTICA") {
 
           navigate("/logistica");
+
+        }
+
+        else if (data.rol === "BODEGA") {
+
+          navigate("/bodega");
 
         }
 

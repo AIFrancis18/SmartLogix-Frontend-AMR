@@ -7,6 +7,7 @@ function OperadorPage() {
   const [vista, setVista] = useState("crear");
 
   const [pedidos, setPedidos] = useState([]);
+  const [productos, setProductos] = useState([]);
   const [mensaje, setMensaje] = useState("");
 
   const [form, setForm] = useState({
@@ -43,6 +44,7 @@ function OperadorPage() {
       }));
 
       cargarPedidos();
+      cargarProductos();
 
     } catch {
 
@@ -74,6 +76,32 @@ function OperadorPage() {
 
     }
   };
+
+      // 🔥 CARGAR PRODUCTOS
+    const cargarProductos = async () => {
+
+      try {
+
+        const res = await fetch(
+          "http://localhost:9090/productos",
+          {
+            headers: {
+              Authorization: "Bearer " + token
+            }
+          }
+        );
+
+    const data = await res.json();
+
+    setProductos(data);
+
+  } catch {
+
+    setMensaje("❌ Error al cargar inventario");
+
+  }
+
+};
 
   // 🔥 CREAR PEDIDO
   const crearPedido = async () => {
@@ -292,6 +320,58 @@ function OperadorPage() {
         </>
       );
     }
+
+    // 🔹 INVENTARIO
+    if (vista === "inventario") {
+
+      return (
+        <>
+
+          <h3>📦 Inventario Disponible</h3>
+
+          <table className="table">
+
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Producto</th>
+                <th>Stock</th>
+              </tr>
+            </thead>
+
+            <tbody>
+
+              {productos.length > 0 ? (
+
+                productos.map((p) => (
+
+                  <tr key={p.id}>
+
+                    <td>#{p.id}</td>
+                    <td>{p.nombre}</td>
+                    <td>{p.stock}</td>
+
+                  </tr>
+
+                ))
+
+              ) : (
+
+                <tr>
+                  <td colSpan="3">
+                    No hay productos registrados
+                  </td>
+                </tr>
+
+              )}
+
+            </tbody>
+
+          </table>
+
+        </>
+      );
+    }
   };
 
   return (
@@ -314,6 +394,15 @@ function OperadorPage() {
             onClick={() => setVista("crear")}
           >
             Crear Pedido
+          </button>
+
+          <button
+            className={`nav-btn ${
+              vista === "inventario" ? "nav-active" : ""
+            }`}
+            onClick={() => setVista("inventario")}
+          >
+            Inventario
           </button>
 
           <button

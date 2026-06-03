@@ -20,6 +20,7 @@ function Dashboard() {
   const [usuarios, setUsuarios] = useState([]);
   const [pedidos, setPedidos] = useState([]);
   const [envios, setEnvios] = useState([]);
+  const [productos, setProductos] = useState([]);
 
   const token = localStorage.getItem("token");
 
@@ -86,9 +87,20 @@ function Dashboard() {
         }
       );
 
+      // 🔹 PRODUCTOS
+      const productosRes = await fetch(
+        "http://localhost:9090/productos",
+        {
+          headers: {
+            Authorization: "Bearer " + token
+          }
+        }
+      );
+
       setUsuarios(await usuariosRes.json());
       setPedidos(await pedidosRes.json());
       setEnvios(await enviosRes.json());
+      setProductos(await productosRes.json());
 
     } catch (error) {
 
@@ -108,6 +120,10 @@ function Dashboard() {
 
   const enviosActivos = envios.filter(
     e => e.estado !== "ENTREGADO"
+  ).length;
+
+  const stockBajo = productos.filter(
+  p => p.stock <= 5
   ).length;
 
   return (
@@ -145,6 +161,20 @@ function Dashboard() {
           <div>
             <h3>{usuarios.length}</h3>
             <p>Usuarios</p>
+          </div>
+
+        </div>
+
+        {/* PRODUCTOS */}
+        <div className="stat-card">
+
+          <div className="icon blue">
+            <FaBoxOpen />
+          </div>
+
+          <div>
+            <h3>{productos.length}</h3>
+            <p>Productos</p>
           </div>
 
         </div>
@@ -203,6 +233,20 @@ function Dashboard() {
             <p>Envíos Activos</p>
           </div>
 
+        </div>
+
+      </div>
+
+      {/* STOCK BAJO */}
+      <div className="stat-card">
+
+        <div className="icon orange">
+          <FaClock />
+        </div>
+
+        <div>
+          <h3>{stockBajo}</h3>
+          <p>Stock Bajo</p>
         </div>
 
       </div>

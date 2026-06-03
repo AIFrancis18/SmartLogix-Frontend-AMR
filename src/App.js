@@ -9,6 +9,7 @@ import Register from "./register/Register";
 import AdminPage from "./pages/AdminPage";
 import OperadorPage from "./pages/OperadorPage";
 import LogisticaPage from "./pages/LogisticaPage";
+import BodegaPage from "./pages/BodegaPage";
 import DashboardPage from "./dashboard/DashboardPage";
 
 // 🔥 PROTECCIÓN POR ROL
@@ -24,7 +25,6 @@ function RutaProtegida({ children, rolPermitido }) {
 
     const data = jwtDecode(token);
 
-    // 🔥 VALIDAR ROL
     if (rolPermitido && data.rol !== rolPermitido) {
       return <Navigate to="/" />;
     }
@@ -65,7 +65,7 @@ function App() {
           }
         />
 
-        {/* 🔥 DASHBOARD ADMIN */}
+        {/* 🔥 DASHBOARD */}
         <Route
           path="/dashboard"
           element={
@@ -91,6 +91,16 @@ function App() {
           element={
             <RutaProtegida rolPermitido="LOGISTICA">
               <LogisticaPage />
+            </RutaProtegida>
+          }
+        />
+
+        {/* 🔐 BODEGA */}
+        <Route
+          path="/bodega"
+          element={
+            <RutaProtegida rolPermitido="BODEGA">
+              <BodegaPage />
             </RutaProtegida>
           }
         />

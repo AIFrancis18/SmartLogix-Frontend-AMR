@@ -167,26 +167,30 @@ function Register() {
         />
 
         {/* 🔥 ROL */}
-        <select
-          className="input"
-          value={rol}
-          onChange={(e) =>
-            setRol(e.target.value)
-          }
-        >
-          <option value="ADMIN">
-            👑 ADMIN
-          </option>
+      <select
+        className="input"
+        value={rol}
+        onChange={(e) =>
+          setRol(e.target.value)
+        }
+      >
+        <option value="ADMIN">
+          👑 ADMIN
+        </option>
 
-          <option value="OPERADOR">
-            📦 OPERADOR
-          </option>
+        <option value="OPERADOR">
+          📦 OPERADOR
+        </option>
 
-          <option value="LOGISTICA">
-            🚚 LOGÍSTICA
-          </option>
+        <option value="LOGISTICA">
+          🚚 LOGÍSTICA
+        </option>
 
-        </select>
+        <option value="BODEGA">
+          🏪 BODEGA
+        </option>
+
+      </select>
 
         {/* 🔥 BOTÓN */}
         <button
