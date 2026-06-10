@@ -1,0 +1,312 @@
+/* FONDO GENERAL */
+
+.notificaciones-container {
+
+  min-height: 100vh;
+
+  padding: 35px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f8fafc,
+      #eef2ff
+    );
+
+}
+
+/* CARD PRINCIPAL */
+
+.notificaciones-card {
+
+  max-width: 1200px;
+
+  margin: auto;
+
+  background: white;
+
+  border-radius: 28px;
+
+  padding: 30px;
+
+  box-shadow:
+    0 20px 45px rgba(0,0,0,.08);
+
+}
+
+/* HEADER */
+
+.notificaciones-header {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  margin-bottom: 30px;
+
+}
+
+.notificaciones-header h2 {
+
+  margin: 0;
+
+  color: #0f172a;
+
+  font-size: 32px;
+
+  font-weight: 800;
+
+}
+
+.notificaciones-header p {
+
+  color: #64748b;
+
+  margin-top: 6px;
+
+}
+
+/* BOTONES */
+
+.btn-volver {
+
+  border: none;
+
+  padding: 12px 18px;
+
+  border-radius: 14px;
+
+  cursor: pointer;
+
+  color: white;
+
+  font-weight: 700;
+
+  background:
+    linear-gradient(
+      135deg,
+      #2563eb,
+      #3b82f6
+    );
+
+  transition: .25s;
+
+}
+
+.btn-volver:hover {
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 10px 20px rgba(37,99,235,.3);
+
+}
+
+/* LISTA */
+
+.notificaciones-grid {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 18px;
+
+}
+
+/* TARJETA */
+
+.notificacion {
+
+  position: relative;
+
+  display: flex;
+
+  gap: 18px;
+
+  padding: 22px;
+
+  border-radius: 20px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #ffffff,
+      #f8fafc
+    );
+
+  border: 1px solid #e2e8f0;
+
+  transition: .25s;
+
+}
+
+.notificacion:hover {
+
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 14px 30px rgba(0,0,0,.08);
+
+}
+
+/* PUNTO TIMELINE */
+
+.timeline-dot {
+
+  width: 14px;
+
+  height: 14px;
+
+  border-radius: 50%;
+
+  background: #2563eb;
+
+  margin-top: 8px;
+
+  flex-shrink: 0;
+
+  box-shadow:
+    0 0 0 6px rgba(37,99,235,.12);
+
+}
+
+/* CONTENIDO */
+
+.notificacion-contenido {
+
+  flex: 1;
+
+}
+
+/* SUPERIOR */
+
+.notificacion-top {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: flex-start;
+
+}
+
+/* USUARIO */
+
+.notificacion-usuario {
+
+  font-weight: 800;
+
+  color: #0f172a;
+
+  font-size: 15px;
+
+}
+
+/* ID */
+
+.notificacion-id {
+
+  margin-top: 4px;
+
+  color: #94a3b8;
+
+  font-size: 13px;
+
+}
+
+/* FECHA */
+
+.notificacion-fecha {
+
+  color: #64748b;
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+}
+
+/* MENSAJE */
+
+.notificacion-mensaje {
+
+  margin-top: 14px;
+
+  margin-bottom: 14px;
+
+  color: #334155;
+
+  line-height: 1.6;
+
+  font-size: 15px;
+
+}
+
+/* FOOTER */
+
+.notificacion-footer {
+
+  display: flex;
+
+  gap: 10px;
+
+}
+
+/* BADGES */
+
+.badge {
+
+  padding: 7px 14px;
+
+  border-radius: 999px;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+}
+
+/* TIPO */
+
+.badge-tipo {
+
+  background: #dbeafe;
+
+  color: #1d4ed8;
+
+}
+
+/* ESTADOS */
+
+.badge-pendiente {
+
+  background: #fee2e2;
+
+  color: #dc2626;
+
+}
+
+.badge-leida {
+
+  background: #dcfce7;
+
+  color: #15803d;
+
+}
+
+/* VACÍO */
+
+.sin-notificaciones {
+
+  text-align: center;
+
+  padding: 60px;
+
+  color: #64748b;
+
+  font-size: 17px;
+
+}

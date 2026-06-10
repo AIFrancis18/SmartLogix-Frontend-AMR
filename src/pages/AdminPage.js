@@ -13,6 +13,7 @@ function AdminPage() {
   const [pedidos, setPedidos] = useState([]);
   const [envios, setEnvios] = useState([]);
   const [productos, setProductos] = useState([]);
+  const [notificaciones, setNotificaciones] = useState([]);
 
   const [modoEdicion, setModoEdicion] = useState(false);
 
@@ -25,6 +26,8 @@ function AdminPage() {
   });
 
   const [mensaje, setMensaje] = useState("");
+
+  const [busqueda, setBusqueda] = useState("");
 
   const token = localStorage.getItem("token");
 
@@ -53,6 +56,7 @@ function AdminPage() {
       cargarPedidos();
       cargarEnvios();
       cargarProductos();
+      cargarNotificaciones();
 
     } catch {
 
@@ -147,6 +151,28 @@ function AdminPage() {
 
   };
 
+  // 🔥 CARGAR NOTIFICACIONES
+  const cargarNotificaciones = async () => {
+
+    const res = await fetch(
+      "http://localhost:9090/notificaciones",
+      {
+        headers: {
+          Authorization: "Bearer " + token
+        }
+      }
+    );
+
+    const data = await res.json();
+
+    const notificacionesOrdenadas = data.sort(
+      (a, b) => b.id - a.id
+    );
+
+    setNotificaciones(notificacionesOrdenadas);
+
+  };
+
   // 🔥 LIMPIAR FORMULARIO
   const limpiarFormulario = () => {
 
@@ -179,7 +205,7 @@ function AdminPage() {
 
     // 🔥 LETRAS + NÚMEROS + .COM/.CL
     const regexCorreo =
-      /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.(com|cl)$/;
+      /^[a-zA-Z0-9._%+-]+@(gmail\.com|hotmail\.com|duoc\.cl|duocuc\.cl)$/;
 
     if (!nombreLimpio) {
       throw new Error(
@@ -201,7 +227,7 @@ function AdminPage() {
 
     if (!regexCorreo.test(correoLimpio)) {
       throw new Error(
-        "Ingrese un correo válido (.com o .cl)"
+        "Correo inválido. Solo se permiten gmail.com, hotmail.com, duoc.cl y duocuc.cl"
       );
     }
 
@@ -344,6 +370,28 @@ function AdminPage() {
 
   };
 
+  const usuariosFiltrados = usuarios.filter((u) =>
+    u.nombre.toLowerCase().includes(busqueda.toLowerCase()) ||
+    u.id.toString().includes(busqueda) ||
+    u.correo.toLowerCase().includes(busqueda)
+  );
+
+  const pedidosFiltrados = pedidos.filter((p) =>
+    p.cliente.toLowerCase().includes(busqueda.toLowerCase()) ||
+    p.id.toString().includes(busqueda)
+  );
+
+  const productosFiltrados = productos.filter((p) =>
+    p.nombre.toLowerCase().includes(busqueda.toLowerCase()) ||
+    p.id.toString().includes(busqueda)
+  );
+
+  const enviosFiltrados = envios.filter((e) =>
+    e.id.toString().includes(busqueda) ||
+    e.pedidoId.toString().includes(busqueda) ||
+    e.direccion.toString().includes(busqueda)
+  );
+
   // 🔥 RENDER
   const renderVista = () => {
 
@@ -358,6 +406,18 @@ function AdminPage() {
             <h3>
               Gestión de Usuarios
             </h3>
+
+            <input
+              className="input"
+              placeholder="Buscar por ID , nombre o correo"
+              value={busqueda}
+              onChange={(e) =>
+                setBusqueda(e.target.value)
+              }
+              style={{
+                maxWidth: "250px"
+              }}
+            />
 
             <button
               className="btn btn-primary"
@@ -385,7 +445,7 @@ function AdminPage() {
 
             <tbody>
 
-              {usuarios.map((u) => (
+              {usuariosFiltrados.map((u) => (
 
                 <tr key={u.id}>
 
@@ -509,6 +569,10 @@ function AdminPage() {
                 LOGISTICA
               </option>
 
+              <option value="BODEGA">
+                BODEGA
+              </option>
+
             </select>
 
           </div>
@@ -548,9 +612,25 @@ function AdminPage() {
       return (
 
         <>
-          <h3>
-            Pedidos del Sistema
-          </h3>
+          <div className="header-section">
+
+            <h3>
+              Pedidos del Sistema
+            </h3>
+
+            <input
+              className="input"
+              placeholder="Buscar por ID o cliente"
+              value={busqueda}
+              onChange={(e) =>
+                setBusqueda(e.target.value)
+              }
+              style={{
+                maxWidth: "250px"
+              }}
+            />
+
+          </div>
 
           <table className="table">
 
@@ -564,7 +644,7 @@ function AdminPage() {
 
             <tbody>
 
-              {pedidos.map((p) => (
+              {pedidosFiltrados.map((p) => (
 
                 <tr key={p.id}>
 
@@ -597,9 +677,25 @@ function AdminPage() {
       return (
 
         <>
-          <h3>
-            Envíos del Sistema
-          </h3>
+          <div className="header-section">
+
+            <h3>
+              Envios del Sistema
+            </h3>
+
+            <input
+              className="input"
+              placeholder="Buscar por ID , ID Pedido o direccion"
+              value={busqueda}
+              onChange={(e) =>
+                setBusqueda(e.target.value)
+              }
+              style={{
+                maxWidth: "250px"
+              }}
+            />
+
+          </div>
 
           <table className="table">
 
@@ -614,7 +710,7 @@ function AdminPage() {
 
             <tbody>
 
-              {envios.map((e) => (
+              {enviosFiltrados.map((e) => (
 
                 <tr key={e.id}>
 
@@ -649,9 +745,25 @@ function AdminPage() {
       return (
 
         <>
-          <h3>
-            Inventario del Sistema
-          </h3>
+          <div className="header-section">
+
+            <h3>
+              Inventario del Sistema
+            </h3>
+
+            <input
+              className="input"
+              placeholder="Buscar por ID o nombre"
+              value={busqueda}
+              onChange={(e) =>
+                setBusqueda(e.target.value)
+              }
+              style={{
+                maxWidth: "250px"
+              }}
+            />
+
+          </div>
 
           <table className="table">
 
@@ -660,12 +772,13 @@ function AdminPage() {
                 <th>ID</th>
                 <th>Producto</th>
                 <th>Stock</th>
+                <th>Precio</th>
               </tr>
             </thead>
 
             <tbody>
 
-              {productos.map((p) => (
+              {productosFiltrados.map((p) => (
 
                 <tr key={p.id}>
 
@@ -674,6 +787,13 @@ function AdminPage() {
                   <td>{p.nombre}</td>
 
                   <td>{p.stock}</td>
+
+                  <td>
+                    $
+                    {Number(p.precio).toLocaleString(
+                      "es-CL"
+                    )}
+                  </td>
 
                 </tr>
 
@@ -718,9 +838,10 @@ function AdminPage() {
                 ? "nav-active"
                 : ""
             }`}
-            onClick={() =>
-              setVista("usuarios")
-            }
+            onClick={() => {
+              setBusqueda("");
+              setVista("usuarios");
+            }}
           >
             Usuarios
           </button>
@@ -744,9 +865,10 @@ function AdminPage() {
                 ? "nav-active"
                 : ""
             }`}
-            onClick={() =>
-              setVista("pedidos")
-            }
+            onClick={() => {
+              setBusqueda("");
+              setVista("pedidos");
+            }}
           >
             Pedidos
           </button>
@@ -775,6 +897,15 @@ function AdminPage() {
             }
           >
             Inventario
+          </button>
+
+          <button
+            className="nav-btn"
+            onClick={() =>
+              navigate("/notificaciones")
+            }
+          >
+            Notificaciones
           </button>
 
         </div>
