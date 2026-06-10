@@ -11,6 +11,7 @@ import OperadorPage from "./pages/OperadorPage";
 import LogisticaPage from "./pages/LogisticaPage";
 import BodegaPage from "./pages/BodegaPage";
 import DashboardPage from "./dashboard/DashboardPage";
+import NotificacionesPage from "./pages/NotificacionesPage";
 
 // 🔥 PROTECCIÓN POR ROL
 function RutaProtegida({ children, rolPermitido }) {
@@ -71,6 +72,15 @@ function App() {
           element={
             <RutaProtegida rolPermitido="ADMIN">
               <DashboardPage />
+            </RutaProtegida>
+          }
+        />
+
+        <Route
+          path="/notificaciones"
+          element={
+            <RutaProtegida rolPermitido="ADMIN">
+              <NotificacionesPage />
             </RutaProtegida>
           }
         />
